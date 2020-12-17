@@ -4,6 +4,7 @@ const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const app = express();
 const axios = require('axios');
+let port = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -15,6 +16,6 @@ app.get('/', (req, res) => {
 
 app.use('/coupons', require('./app/controllers/coupons'));
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log('The server is listening...');
 });
